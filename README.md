@@ -2,16 +2,25 @@
 
 This repository contains introductory reinforcement-learning notebooks using
 [Gymnasium](https://gymnasium.farama.org/). The supplied Conda environment
-provides the packages used by the notebooks and the wider teaching examples.
+provides the packages used by the notebooks and examples.
 
-## Create the environment
+## Create the environment manually
 
 Install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) or
-another Conda distribution, open a terminal in this repository, and run:
+another Conda distribution. The main packages used for this repository match
+the following versions from the environment:
+
+- Python 3.13
+- Gymnasium 1.3.0
+- Stable-Baselines3 2.9.0
+
+Open a terminal in this repository and create an environment with these
+versions:
 
 ```bash
-conda env create -f environment.yml
+conda create -n gym python=3.13 pip
 conda activate gym
+python -m pip install gymnasium==1.3.0 stable-baselines3==2.9.0 ipykernel
 ```
 
 Register the environment as a Jupyter kernel:
@@ -24,6 +33,18 @@ Open a notebook in Jupyter or your preferred notebook editor and select
 **Python (gym)** as its kernel. A Jupyter frontend may be installed or launched
 from a separate environment; the registered kernel will still execute the
 notebooks with the packages from `gym`.
+
+## Alternatively, use the environment file
+
+The manual method above installs the key dependencies. To reproduce
+the fuller pinned environment, create it from `environment.yml` instead:
+
+```bash
+conda env create -f environment.yml
+conda activate gym
+```
+
+Then register the Jupyter kernel using the command shown above.
 
 ## Update an existing environment
 
