@@ -1,8 +1,7 @@
 # Introduction to Reinforcement Learning
 
 This repository contains introductory reinforcement-learning notebooks using
-[Gymnasium](https://gymnasium.farama.org/). The supplied Conda environment
-provides the packages used by the notebooks and examples.
+[Gymnasium](https://gymnasium.farama.org/).
 
 ## Create the environment manually
 
