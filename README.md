@@ -11,6 +11,7 @@ the following versions from the environment:
 
 - Python 3.13
 - Gymnasium 1.3.0
+- Torch 2.12
 - Stable-Baselines3 2.9.0
 
 Open a terminal in this repository and create an environment with these
