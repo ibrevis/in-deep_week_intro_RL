@@ -55,11 +55,13 @@ conda env update -f environment.yml --prune
 conda activate gym
 ```
 
+<!--
 ## Atari environments
 
 The environment includes the ALE Python package for Atari support, but Atari
 game ROMs must be supplied separately in accordance with their licences. The
 notebooks currently included in this repository do not require Atari or ROMs.
+-->
 
 ## Installation on Windows
 
