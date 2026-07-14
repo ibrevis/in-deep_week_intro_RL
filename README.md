@@ -60,6 +60,6 @@ The environment includes the ALE Python package for Atari support, but Atari
 game ROMs must be supplied separately in accordance with their licences. The
 notebooks currently included in this repository do not require Atari or ROMs.
 
-## Installation on Windowns
+## Installation on Windows
 
 I have not tested the installation on Windows, but this video might help if you fun into any trouble https://www.youtube.com/watch?v=gMgj4pSHLww
