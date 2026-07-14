@@ -1,7 +1,7 @@
 # Introduction to Reinforcement Learning
 
 This repository contains introductory reinforcement-learning notebooks using
-[Gymnasium](https://gymnasium.farama.org/).
+[Gymnasium](https://gymnasium.farama.org/) and [PyTorch] (https://pytorch.org/). In these examples, we will use Gymnasium 1.3.0; this version is important for the notebooks to work properly. Below are some instructions that may help you set up a Python environment and install the packages.
 
 ## Create the environment manually
 
@@ -12,7 +12,6 @@ the following versions from the environment:
 - Python 3.13
 - Gymnasium 1.3.0
 - Torch 2.12
-- Stable-Baselines3 2.9.0
 
 Open a terminal in this repository and create an environment with these
 versions:
@@ -60,3 +59,7 @@ conda activate gym
 The environment includes the ALE Python package for Atari support, but Atari
 game ROMs must be supplied separately in accordance with their licences. The
 notebooks currently included in this repository do not require Atari or ROMs.
+
+## Installation on Windowns
+
+I have not tested the installation on Windows, but this video might help if you fun into any trouble https://www.youtube.com/watch?v=gMgj4pSHLww
