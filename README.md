@@ -1,7 +1,8 @@
 # Introduction to Reinforcement Learning
 
-This repository contains introductory reinforcement-learning notebooks using
-[Gymnasium](https://gymnasium.farama.org/) and [PyTorch](https://pytorch.org/). In these examples, we will use Gymnasium 1.3.0; this version is important for the notebooks to work properly. Below are some instructions that may help you set up a Python environment and install the packages.
+Hi everyone, for the practical part of the reinforcement learning course, we will use [Gymnasium](https://gymnasium.farama.org/) and [PyTorch](https://pytorch.org/). Please install Gymnasium 1.3.0; this version is important for the notebooks to work properly. I recommend creating an environment, but feel free to do it in the way that works best for you.
+
+That said, below are some instructions that may help you set up a Python environment and install the packages if needed.
 
 ## Create the environment manually
 
