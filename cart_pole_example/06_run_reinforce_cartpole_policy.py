@@ -1,10 +1,13 @@
-"""Run CartPole in human render mode using the DQN policy learned in the notebook.
+"""Run CartPole in human render mode using a policy learned with REINFORCE.
+
+Run this script from the cart_pole_example directory after running one of the
+REINFORCE notebooks.
 
 Usage:
-    python run_dqn_cartpole_policy.py
-    python run_dqn_cartpole_policy.py --episodes 3
-    python run_dqn_cartpole_policy.py --policy another_policy.pth
-    python run_dqn_cartpole_policy.py --delay 0.05
+    python 06_run_reinforce_cartpole_policy.py
+    python 06_run_reinforce_cartpole_policy.py --episodes 3
+    python 06_run_reinforce_cartpole_policy.py --policy reinforce_cartpole_policy.pth
+    python 06_run_reinforce_cartpole_policy.py --delay 0.05
 
 Requires Gymnasium's classic-control renderer:
     pip install "gymnasium[classic-control]"
@@ -24,8 +27,8 @@ HIDDEN_SIZE = 128
 ENV_MAX_STEPS = 500
 
 
-class QNetwork(nn.Module):
-    """Map a CartPole observation to one Q-value per action."""
+class PolicyNetwork(nn.Module):
+    """Map a CartPole observation to one logit per action."""
 
     def __init__(self, state_size, action_size, hidden_size):
         super().__init__()
@@ -45,8 +48,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--policy",
-        default="dqn_cartpole_policy.pth",
-        help="path to the saved DQN policy",
+        default="reinforce_cartpole_policy.pth",
+        help="path to a saved REINFORCE policy",
     )
     parser.add_argument("--episodes", type=int, default=1)
     parser.add_argument("--max-steps", type=int, default=500)
@@ -59,14 +62,14 @@ def main():
     args = parser.parse_args()
 
     # Recreate the network used during training, then load its saved weights.
-    q_net = QNetwork(STATE_SIZE, ACTION_SIZE, HIDDEN_SIZE)
+    policy_net = PolicyNetwork(STATE_SIZE, ACTION_SIZE, HIDDEN_SIZE)
     saved_weights = torch.load(
         args.policy,
         map_location="cpu",
         weights_only=True,
     )
-    q_net.load_state_dict(saved_weights)
-    q_net.eval()
+    policy_net.load_state_dict(saved_weights)
+    policy_net.eval()
     print(f"Loaded policy: {args.policy}")
 
     env = gym.make(
@@ -86,10 +89,10 @@ def main():
                     dtype=torch.float32,
                 ).unsqueeze(0)
 
-                # Greedy action: no epsilon and no exploration during evaluation.
+                # Greedy action: choose the action with the largest policy logit.
                 with torch.no_grad():
-                    q_values = q_net(state_tensor)
-                    action = int(q_values.argmax(dim=1).item())
+                    logits = policy_net(state_tensor)
+                    action = int(logits.argmax(dim=1).item())
 
                 state, reward, terminated, truncated, info = env.step(action)
                 episode_return += reward

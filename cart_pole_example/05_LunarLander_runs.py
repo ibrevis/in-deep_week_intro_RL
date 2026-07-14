@@ -1,12 +1,12 @@
 import gymnasium as gym
 import time
 
-env = gym.make("CartPole-v1", render_mode="human")
+env = gym.make("LunarLander-v3", render_mode="human")
 
-for episode in range(5):
-    state, _ = env.reset()
+for episode in range(2):
+    env.reset()
     episode_return = 0.
-    for step in range(100):
+    for step in range(500):
         action = env.action_space.sample()  # Take a random action
         state, reward, terminated, truncated, _ = env.step(action)
         episode_return += reward
