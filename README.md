@@ -65,4 +65,4 @@ notebooks currently included in this repository do not require Atari or ROMs.
 
 ## Installation on Windows
 
-I have not tested the installation on Windows, but this video might help if you fun into any trouble https://www.youtube.com/watch?v=gMgj4pSHLww
+I have not tested the installation on Windows, but this video might help if you run into any trouble https://www.youtube.com/watch?v=gMgj4pSHLww
